@@ -37,7 +37,7 @@ function App() {
         this.setState({ ...this.state, todos: newTodos });
       },
     });
-    TodoList();
+    TodoList({ container: app, state: this.state });
   };
 
   this.init();

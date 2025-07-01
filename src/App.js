@@ -37,7 +37,25 @@ function App() {
         this.setState({ ...this.state, todos: newTodos });
       },
     });
-    TodoList({ container: app, state: this.state });
+
+    TodoList({
+      container: app,
+      state: this.state,
+      toggleTodo: (index) => {
+        this.setState({
+          ...this.state,
+          todos: this.state.todos.map((todo, i) =>
+            i === index ? { ...todo, isCompleted: !todo.isCompleted } : todo
+          ),
+        });
+      },
+      removeTodo: (index) => {
+        this.setState({
+          ...this.state,
+          todos: this.state.todos.filter((_, i) => i !== index),
+        });
+      },
+    });
   };
 
   this.init();

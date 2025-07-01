@@ -1,1 +1,1 @@
-# PLANIT-SQUARE
+# 바닐라 JS TodoList 과제

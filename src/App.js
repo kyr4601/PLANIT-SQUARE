@@ -8,6 +8,7 @@ function App() {
 
   this.state = {
     todos: [],
+    editingId: null,
   };
 
   //초기화
@@ -29,31 +30,44 @@ function App() {
 
     TodoInput({
       container: app,
+      state: this.state,
       addTodo: (todo) => {
         const newTodos = [
           ...this.state.todos,
-          { name: todo, isCompleted: false },
+          { id: Date.now() + Math.random(), name: todo, isCompleted: false },
         ];
-        this.setState({ ...this.state, todos: newTodos });
+        this.setState({ ...this.state, todos: newTodos, editingId: null });
+      },
+      editTodo: (todo) => {
+        const todos = [...this.state.todos];
+        const editingTodo = todos.find((t) => t.id === this.state.editingId);
+        if (editingTodo) {
+          editingTodo.name = todo;
+        }
+        this.setState({ ...this.state, todos, editingId: null });
       },
     });
 
     TodoList({
       container: app,
       state: this.state,
-      toggleTodo: (index) => {
+      toggleTodo: (id) => {
         this.setState({
           ...this.state,
-          todos: this.state.todos.map((todo, i) =>
-            i === index ? { ...todo, isCompleted: !todo.isCompleted } : todo
+          todos: this.state.todos.map((todo) =>
+            todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
           ),
         });
       },
-      removeTodo: (index) => {
+      removeTodo: (id) => {
         this.setState({
           ...this.state,
-          todos: this.state.todos.filter((_, i) => i !== index),
+          todos: this.state.todos.filter((todo) => todo.id !== id),
+          editingId: null,
         });
+      },
+      selectTodo: (id) => {
+        this.setState({ ...this.state, editingId: id });
       },
     });
   };

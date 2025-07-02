@@ -1,11 +1,105 @@
+:root {
+  --main-color: #006ffd;
+  --sub-color: #b4dbff;
+  --black-color: #181818;
+  --ligth-color: #f8f9fe;
+  --white-color: #ffffff;
+}
+
 html,
-body {
+body,
+ul,
+li {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: var(--white-color);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--main-color);
 }
 
 #app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TodoInput */
+form {
+  box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  max-width: 500px;
+  padding: 1rem;
+}
+
+input[type='text'] {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--sub-color);
+  background-color: var(--ligth-color);
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 1rem;
+}
+
+input[type='text']:focus {
+  outline: none;
+  border: 2px solid var(--main-color);
+}
+
+.add-button {
+  width: 60px;
+  height: 40px;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  font-size: 1rem;
+}
+
+/* TodoList */
+ul {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  border-top: 1px solid var(--sub-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--ligth-color);
+}
+
+li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--white-color);
+  gap: 10px;
+}
+
+li .icons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+li span {
+  flex: 1;
+  cursor: pointer;
 }

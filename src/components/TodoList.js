@@ -8,10 +8,18 @@ function TodoList({ container, state, toggleTodo, removeTodo, selectTodo }) {
       li.innerHTML = `
         <input type="checkbox" ${todo.id === state.editingId ? 'checked' : ''}/>
         <span>${todo.name}</span>
-        <button class="complete-btn" style="background:${
-          todo.isCompleted ? 'green' : 'gray'
-        };color:white;">완료</button>
-        <button class="delete-btn">삭제</button>
+        <div class="icons">
+          <div>
+          ${
+            todo.isCompleted
+              ? `<img src="src/images/check.svg" alt="check" />`
+              : ''
+          }
+         </div>
+          <div class="delete-btn">
+            <img src="src/images/delete.svg" alt="delete" />
+          </div>
+        </div>
       `;
       // 할 일 완료 처리
       li.querySelector('span').addEventListener('click', () => {

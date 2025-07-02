@@ -30,9 +30,13 @@ function TodoList({ container, state, toggleTodo, removeTodo, selectTodo }) {
         removeTodo(todo.id);
       });
       // 할 일 수정을 위한 개별 선택 처리
-      li.querySelector('input').addEventListener('change', () =>
-        selectTodo(todo.id)
-      );
+      li.querySelector('input').addEventListener('change', () => {
+        if (state.editingId === todo.id) {
+          selectTodo(null);
+        } else {
+          selectTodo(todo.id);
+        }
+      });
       ul.appendChild(li);
     });
   }

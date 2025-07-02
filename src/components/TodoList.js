@@ -7,7 +7,9 @@ function TodoList({ container, state, toggleTodo, removeTodo, selectTodo }) {
       const li = document.createElement('li');
       li.innerHTML = `
         <input type="checkbox" ${todo.id === state.editingId ? 'checked' : ''}/>
-        <span>${todo.name}</span>
+        <span ${
+          todo.isCompleted ? 'style="text-decoration: line-through;"' : ''
+        }>${todo.name}</span>
         <div class="icons">
           <div>
           ${

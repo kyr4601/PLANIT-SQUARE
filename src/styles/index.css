@@ -85,7 +85,7 @@ input[type='text']:focus {
   box-sizing: border-box;
   width: 100%;
   max-width: 500px;
-  padding: 0 1rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -114,7 +114,6 @@ ul {
   justify-content: flex-start;
   align-items: flex-start;
   background-color: var(--ligth-color);
-  margin-top: 1rem;
 }
 
 li {
@@ -139,4 +138,7 @@ li .icons {
 li span {
   flex: 1;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

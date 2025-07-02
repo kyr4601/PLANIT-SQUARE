@@ -1,6 +1,7 @@
 import TodoList from './components/TodoList.js';
 import TodoInput from './components/TodoInput.js';
 import TodoSummary from './components/TodoSummary.js';
+import TodoManage from './components/TodoManage.js';
 import loadStorage from './utils/loadStorage.js';
 import saveStorage from './utils/saveStorage.js';
 
@@ -52,6 +53,25 @@ function App() {
     TodoSummary({
       container: app,
       todos: this.state.todos,
+    });
+
+    TodoManage({
+      container: app,
+      completeAll: () => {
+        this.setState({
+          ...this.state,
+          todos: this.state.todos.map((todo) => ({
+            ...todo,
+            isCompleted: true,
+          })),
+        });
+      },
+      deleteAll: () => {
+        this.setState({
+          ...this.state,
+          todos: [],
+        });
+      },
     });
 
     TodoList({

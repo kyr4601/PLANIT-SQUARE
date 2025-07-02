@@ -11,16 +11,21 @@ function TodoInput({ container, addTodo, editTodo, state }) {
 
   if (state.editingId !== null) {
     const selected = state.todos.find((todo) => todo.id === state.editingId);
+    // 선택된 할 일이 있을 때
     if (selected) {
       input.value = selected.name;
       input.readOnly = selected.isCompleted;
       button.textContent = '수정';
-      if (!selected.isCompleted) input.focus();
+
+      // 완료 상태인 경우 수정 불가능 처리
       if (selected.isCompleted) {
         button.disabled = true;
         button.style.backgroundColor = 'gray';
         input.tabIndex = -1;
         input.style.pointerEvents = 'none';
+      } else {
+        // 완료 상태가 아닌 경우 포커스 처리
+        input.focus();
       }
     }
   }

@@ -4,6 +4,7 @@
   --black-color: #181818;
   --light-color: #f8f9fe;
   --white-color: #ffffff;
+  --gray-color: #666666;
 }
 
 *,
@@ -126,10 +127,7 @@ li {
   align-items: center;
   width: 100%;
   padding: 1rem;
-  font-size: 1rem;
-  font-weight: 500;
   background-color: var(--white-color);
-  color: var(--black-color);
   gap: 10px;
 }
 
@@ -145,4 +143,13 @@ li span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--gray-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+li span:hover {
+  color: var(--black-color);
+  font-weight: 700;
+  text-decoration: line-through;
 }

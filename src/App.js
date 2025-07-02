@@ -6,7 +6,7 @@ import loadStorage from './utils/loadStorage.js';
 import saveStorage from './utils/saveStorage.js';
 
 function App() {
-  const app = document.querySelector('#app');
+  const $todoList = document.querySelector('#todo-list');
 
   this.state = {
     todos: [],
@@ -28,10 +28,10 @@ function App() {
 
   //렌더링
   this.render = () => {
-    app.innerHTML = '';
+    $todoList.innerHTML = '';
 
     TodoInput({
-      container: app,
+      container: $todoList,
       state: this.state,
       addTodo: (todo) => {
         const newTodos = [
@@ -51,12 +51,12 @@ function App() {
     });
 
     TodoSummary({
-      container: app,
+      container: $todoList,
       todos: this.state.todos,
     });
 
     TodoManage({
-      container: app,
+      container: $todoList,
       completeAll: () => {
         this.setState({
           ...this.state,
@@ -75,7 +75,7 @@ function App() {
     });
 
     TodoList({
-      container: app,
+      container: $todoList,
       state: this.state,
       toggleTodo: (id) => {
         this.setState({

@@ -68,6 +68,18 @@ input[type='text']:focus {
   font-size: 1rem;
 }
 
+/* TodoSummary */
+.summary {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 1rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--main-color);
+}
+
 /* TodoList */
 ul {
   box-sizing: border-box;
@@ -79,6 +91,7 @@ ul {
   justify-content: flex-start;
   align-items: flex-start;
   background-color: var(--ligth-color);
+  margin-top: 1rem;
 }
 
 li {
@@ -90,6 +103,7 @@ li {
   font-size: 1rem;
   font-weight: 500;
   background-color: var(--white-color);
+  color: var(--black-color);
   gap: 10px;
 }
 

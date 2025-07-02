@@ -1,5 +1,6 @@
 import TodoList from './components/TodoList.js';
 import TodoInput from './components/TodoInput.js';
+import TodoSummary from './components/TodoSummary.js';
 import loadStorage from './utils/loadStorage.js';
 import saveStorage from './utils/saveStorage.js';
 
@@ -46,6 +47,11 @@ function App() {
         }
         this.setState({ ...this.state, todos, editingId: null });
       },
+    });
+
+    TodoSummary({
+      container: app,
+      todos: this.state.todos,
     });
 
     TodoList({

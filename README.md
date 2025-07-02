@@ -88,6 +88,7 @@ App.js에서 전체 상태(state)를 관리하고,
 ## 5. 트러블슈팅
 
 ### editingIndex를 editingId로 바꾸게 된 과정
+
 [해당 과정 커밋](https://github.com/kyr4601/PLANIT-SQUARE/commit/74aa04ee91d05316a0bbb1891a5eee4ea18204d5)
 
 ### 📌문제 상황

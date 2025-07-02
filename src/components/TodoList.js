@@ -8,9 +8,7 @@ function TodoList({ container, state, toggleTodo, removeTodo, selectTodo }) {
     const li = document.createElement('li');
 
     const checked = todo.id === state.editingId ? 'checked' : '';
-    const completed = todo.isCompleted
-      ? 'style="text-decoration: line-through;"'
-      : '';
+    const completed = todo.isCompleted ? 'class="completed"' : '';
     const completedIcon = todo.isCompleted
       ? `<img src="src/images/check.svg" alt="check" />`
       : '';

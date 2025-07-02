@@ -153,3 +153,11 @@ li span:hover {
   font-weight: 700;
   text-decoration: line-through;
 }
+
+span.completed {
+  text-decoration: line-through;
+}
+
+span.completed:hover {
+  text-decoration: none;
+}
